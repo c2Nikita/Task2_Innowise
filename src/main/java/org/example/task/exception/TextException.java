@@ -14,7 +14,7 @@ public class TextException extends Exception {
         super(reason);
     }
 
-    public TextException(Throwable reason, String message) {
+    public TextException(String message, Throwable reason) {
         super(message, reason);
     }
 }
