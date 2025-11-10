@@ -17,11 +17,41 @@ public class TextComposite extends TextComponent{
     }
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        for(TextComponent component : components) {
-            stringBuilder.append(component.toString());
+        for (int i = 0; i < components.size(); i++) {
+            TextComponent current = components.get(i);
+            TextComponent next = (i < components.size() - 1) ? components.get(i + 1) : null;
+
+            sb.append(current.toString());
+
+            if (current.getComponentType() == TextComponentType.WORD &&
+                    next != null &&
+                    next.getComponentType() == TextComponentType.WORD) {
+                sb.append(" ");
+            }
+
+            if ((current.getComponentType() == TextComponentType.PUNCTUATION ||
+                    isPunctuation(current)) &&
+                    next != null &&
+                    next.getComponentType() == TextComponentType.WORD) {
+                sb.append(" ");
+            }
         }
-        return stringBuilder.toString();
+
+
+        if (getComponentType() == TextComponentType.PARAGRAPH) {
+            sb.append("\n");
+        }
+
+        return sb.toString().trim();
+    }
+
+    private boolean isPunctuation(TextComponent component) {
+        if (component instanceof TextLeaf) {
+            char c = component.toString().charAt(0);
+            return c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':';
+        }
+        return false;
     }
 }
