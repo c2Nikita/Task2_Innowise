@@ -14,7 +14,7 @@ public class Main {
         String text = textReader.readFile("data/text.txt");
         AbstractTextParser textParser = buildChain();
         TextComponent tree = textParser.parse(text);
-        logger.info(tree.toString());
+        System.out.println(tree);
     }
 
     private static AbstractTextParser buildChain() {
