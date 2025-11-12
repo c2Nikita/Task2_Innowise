@@ -21,13 +21,11 @@ public class Main {
 
         TextService textService = new TextServiceImpl();
 
-        System.out.println(textService.maxSentencesWithCommonWords((TextComposite) tree));
-        System.out.println(textService.sortByLexemeCount((TextComposite) tree));
-        System.out.println(tree);
-        System.out.println("\n\n\n");
+        logger.info(textService.maxSentencesWithCommonWords((TextComposite) tree));
+        logger.info(textService.sortByLexemeCount((TextComposite) tree));
+        logger.info(tree);
         textService.swapEdgeLexemes((TextComposite) tree);
-        System.out.println(tree);
-
+        logger.info(tree);
 
     }
 
