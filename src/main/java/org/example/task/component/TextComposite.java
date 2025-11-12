@@ -1,6 +1,7 @@
 package org.example.task.component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TextComposite extends TextComponent{
     private ArrayList<TextComponent> components = new ArrayList<>();
@@ -14,6 +15,14 @@ public class TextComposite extends TextComponent{
     }
     public void removeComponent(TextComponent textComponent) {
         components.remove(textComponent);
+    }
+
+    public List<TextComponent> getComponents() {
+        return components;
+    }
+
+    public void setComponents(List<TextComponent> newComponents) {
+        this.components = new ArrayList<>(newComponents);
     }
     @Override
     public String toString() {
