@@ -10,13 +10,10 @@ public class TextParser extends AbstractTextParser{
     public TextComponent parse(String text) {
         TextComposite textComposite = new TextComposite(TextComponentType.TEXT);
 
-        String[] paragraphs = text.trim().split(TextRegexPattern.PARAGRAPH_DELIMITER);
+        String[] paragraphs = text.strip().split(TextRegexPattern.PARAGRAPH_DELIMITER);
 
         for (String paragraph : paragraphs) {
-
-            if(getNextParser() != null) {
-                textComposite.addComponent(getNextParser().parse(paragraph));
-            }
+            textComposite.addComponent(getNextParser().parse(paragraph));
         }
 
         return textComposite;

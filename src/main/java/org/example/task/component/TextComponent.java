@@ -1,5 +1,7 @@
 package org.example.task.component;
 
+import java.util.List;
+
 public abstract class TextComponent {
 
     private TextComponentType componentType;
@@ -13,4 +15,5 @@ public abstract class TextComponent {
     }
 
     public abstract String toString();
+
 }

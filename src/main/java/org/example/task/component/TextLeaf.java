@@ -1,5 +1,8 @@
 package org.example.task.component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TextLeaf extends TextComponent{
     private char text;
 
@@ -12,4 +15,6 @@ public class TextLeaf extends TextComponent{
     public String toString() {
         return String.valueOf(text);
     }
+
+
 }

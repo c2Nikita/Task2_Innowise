@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite extends TextComponent{
+    private static final String TABULATION = "\t";
+    private static final String NEW_LINE = "\n";
+    private static final String SPACE = " ";
     private ArrayList<TextComponent> components = new ArrayList<>();
 
     public TextComposite(TextComponentType textComponentType) {
@@ -16,6 +19,7 @@ public class TextComposite extends TextComponent{
     public void removeComponent(TextComponent textComponent) {
         components.remove(textComponent);
     }
+
 
     public List<TextComponent> getComponents() {
         return components;
@@ -30,16 +34,16 @@ public class TextComposite extends TextComponent{
         for (TextComponent component : components) {
 
             if (getComponentType() == TextComponentType.PARAGRAPH) {
-                sb.append("\t");
+                sb.append(TABULATION);
             }
             sb.append(component.toString());
 
             if (getComponentType() == TextComponentType.PARAGRAPH) {
-                sb.append("\n");
+                sb.append(NEW_LINE);
             }
 
             if (getComponentType() == TextComponentType.SENTENCE) {
-                sb.append(" ");
+                sb.append(SPACE);
             }
 
 

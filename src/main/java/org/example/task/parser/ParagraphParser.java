@@ -13,10 +13,7 @@ public class ParagraphParser extends AbstractTextParser {
         String[] paragraphs = text.split(TextRegexPattern.SENTENCE_DELIMETER);
 
         for(String paragraph : paragraphs) {
-
-            if(getNextParser() != null) {
-                paragraphComposite.addComponent(getNextParser().parse(paragraph));
-            }
+            paragraphComposite.addComponent(getNextParser().parse(paragraph));
         }
         return paragraphComposite;
     }

@@ -13,10 +13,7 @@ public class SentenceParser extends AbstractTextParser{
         String[] sentences = text.split(TextRegexPattern.LEXEME_DELIMETER);
 
         for(String sentence : sentences) {
-
-            if(getNextParser() != null) {
-                sentenceComposite.addComponent(getNextParser().parse(sentence.trim()));
-            }
+            sentenceComposite.addComponent(getNextParser().parse(sentence.trim()));
         }
         return sentenceComposite;
     }
